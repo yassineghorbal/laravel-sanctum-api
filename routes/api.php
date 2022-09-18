@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ShowController;
 use App\Http\Controllers\UserController;
+use App\Models\Show;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -35,6 +37,23 @@ Route::middleware('auth:sanctum')->delete('/products/{id}', ProductController::c
 
 //search by name
 Route::get('/products/search/{name}', ProductController::class . '@search');
+
+
+////shows
+Route::get('/shows', ShowController::class . '@index');
+
+Route::post('/shows', ShowController::class . '@store');
+
+Route::get('/shows/{id}', ShowController::class . '@show');
+
+Route::put('/shows/{id}', ShowController::class . '@update');
+
+Route::delete('/shows/{id}', ShowController::class . '@destroy');
+
+//search by artist
+Route::get('/shows/search/{artist}', ShowController::class . '@search');
+
+////tickets
 
 
 ////users
